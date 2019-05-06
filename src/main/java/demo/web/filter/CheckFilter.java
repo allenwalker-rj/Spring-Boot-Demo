@@ -13,7 +13,7 @@ import java.io.IOException;
  * {@link org.springframework.boot.web.servlet.ServletComponentScan}
  * (不过只在内置容器中生效)
  *
- * spring的注解{@link import org.springframework.core.annotation.Order}
+ * spring的注解{@link org.springframework.core.annotation.Order}
  * 并不会影响顺序，实际上此类在普通的web项目中也生效，servlet容器会自动注入此过滤器
  *
  * @author zhaomengwei
