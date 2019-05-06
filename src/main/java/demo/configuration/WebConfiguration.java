@@ -25,7 +25,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new DemoFilter());
         registration.addUrlPatterns("/*");
-        registration.addInitParameter("paramNmae", "paramValue");
+        registration.addInitParameter("paramName", "paramValue");
         registration.setName("demoFilter");
         registration.setOrder(2);
 
