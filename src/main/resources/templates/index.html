@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Spring Boot Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+  
+    <p th:utext="#{home.welcome}">Welcome</p>
+  
+    <p>
+      Today is: <span th:with="df=#{date.format}" th:text="${#calendars.format(today,df)}">13 February 2011</span>
+    </p>
+  
+    <div th:insert="~{footer::copy}">&copy; 2019 self2world.top</div>
+  
+  </body>
+  
+</html>
+
