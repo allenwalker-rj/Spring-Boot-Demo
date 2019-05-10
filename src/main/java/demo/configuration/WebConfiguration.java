@@ -1,5 +1,6 @@
 package demo.configuration;
 
+import demo.entity.SystemInfo;
 import demo.web.filter.DemoFilter;
 import demo.web.interceptor.DemoInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -40,5 +41,10 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new DemoInterceptor());
+    }
+
+    @Bean
+    public SystemInfo sysInfo(){
+        return new SystemInfo();
     }
 }
