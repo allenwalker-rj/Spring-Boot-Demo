@@ -6,11 +6,12 @@ import lombok.Getter;
 /**
  * 返回信息枚举类
  * 
+ * 调用：<code>throw new GlobalException(Response.FAIL);</code>
  * @author zhaomengwei 
  */
 @Getter
 @AllArgsConstructor
-public enum ResponseCode {
+public enum ResponseCode implements IResponseCode {
     // 成功
     SUCCESS(200,"成功"),
     // 失败

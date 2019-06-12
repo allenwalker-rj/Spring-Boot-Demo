@@ -13,5 +13,5 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class GlobalException extends Exception {
-    private ResponseCode responseCode;
+    private IResponseCode responseCode;
 }
