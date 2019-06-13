@@ -14,7 +14,7 @@ public class ResponseEntity<T> {
     private String msg;
     private T data;
 
-    public ResponseEntity<T> setResponseCode(ResponseCode responseCode){
+    public ResponseEntity<T> setResponseCode(IResponseCode responseCode){
         this.code = responseCode.getCode();
         this.msg = responseCode.getMsg();
         return this;

@@ -1,5 +1,6 @@
 package demo.controller;
 
+import demo.annotation.LoginCheck;
 import demo.entity.SystemInfo;
 import demo.entity.UserProfile;
 import demo.service.AsyncService;
@@ -45,6 +46,7 @@ public class HelloController {
     }
 
     @RequestMapping("/execute")
+    @LoginCheck
     public String submit() {
         LOGGER.info("start submit");
         asyncService.executeAsync();

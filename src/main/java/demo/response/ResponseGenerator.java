@@ -27,7 +27,7 @@ public class ResponseGenerator {
         return new ResponseEntity<T>().setCode(code).setMsg(msg).setData(data);
     }
 
-    public static <T> ResponseEntity<T> error(ResponseCode responseCode){
+    public static <T> ResponseEntity<T> error(IResponseCode responseCode){
         return new ResponseEntity<T>().setResponseCode(responseCode);
     }
 }
