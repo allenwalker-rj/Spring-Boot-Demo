@@ -46,7 +46,7 @@ public class HelloController {
     }
 
     @RequestMapping("/execute")
-    @LoginCheck
+    @LoginCheck(forbidBlackUser = true)
     public String submit() {
         LOGGER.info("start submit");
         asyncService.executeAsync();
