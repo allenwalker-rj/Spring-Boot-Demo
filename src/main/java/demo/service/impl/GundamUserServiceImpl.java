@@ -2,8 +2,8 @@ package demo.service.impl;
 
 import demo.dao.GundamUserDao;
 import demo.entity.GundamUser;
-import demo.util.PageQuery;
 import demo.service.GundamUserService;
+import demo.util.PageQuery;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 

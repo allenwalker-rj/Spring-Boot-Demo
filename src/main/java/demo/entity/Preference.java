@@ -3,6 +3,9 @@ package demo.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * @author zhaomengwei
+ */
 @Getter
 @Setter
 public class Preference {
