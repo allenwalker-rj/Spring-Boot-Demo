@@ -1,10 +1,14 @@
 package demo.controller;
 
+import demo.annotation.LoginCheck;
 import demo.entity.GundamUser;
+import demo.holder.ParamsHolder;
 import demo.service.GundamUserService;
 import demo.util.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author allen
@@ -15,6 +19,13 @@ public class GundamUserController {
 
     @Autowired
     private GundamUserService gundamUserService;
+
+
+    @GetMapping(value = "/user/token")
+    @LoginCheck
+    public Object token(){
+        return ParamsHolder.get();
+    }
 
     @PostMapping(value = "/user/save")
     public Object save(@RequestBody GundamUser user) {
@@ -28,8 +39,13 @@ public class GundamUserController {
         return 1;
     }
 
+    @GetMapping(value = "/user/findOne")
+    public Object findOne(HttpServletRequest request, @RequestParam("uid") long uid) {
+        return gundamUserService.findOne(uid);
+    }
+
     @GetMapping(value = "/user/findAll")
-    public Object findAll() {
+    public Object findAll(HttpServletRequest request) {
         return gundamUserService.findAll();
     }
 

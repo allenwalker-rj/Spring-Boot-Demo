@@ -45,6 +45,7 @@ public class OkHttpUtil {
         try {
             Response response = okHttpClient.newCall(request).execute();
             if (response.body() != null) {
+                // response.body().toString() 只能打印出对象的内存地址 需要使用OkHttp提供的 .string() 转换
                 LOGGER.info("okHttpClient doGet response:`{}`", response.body().string());
             }
             if (response.isSuccessful()) {

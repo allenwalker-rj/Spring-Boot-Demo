@@ -21,6 +21,11 @@ public class GundamUserServiceImpl implements GundamUserService {
     private GundamUserDao gundamUserDao;
 
     @Override
+    public Object findOne(long id) {
+        return gundamUserDao.findOne(id);
+    }
+
+    @Override
     public void save(GundamUser user) {
         gundamUserDao.save(user);
     }

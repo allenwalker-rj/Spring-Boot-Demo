@@ -11,6 +11,8 @@ import java.util.List;
  **/
 public interface GundamUserService {
 
+    public Object findOne(long id);
+
     public void save(GundamUser user);
 
     public void delete(GundamUser user);
