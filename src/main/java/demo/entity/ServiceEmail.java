@@ -3,15 +3,17 @@ package demo.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "sys_email")
 public class ServiceEmail {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private Integer id  = -1;
     @Column(name = "EMAIL" ,nullable = false)
     private String email;
     @Column(name = "SMTP_HOST" ,nullable = false)
