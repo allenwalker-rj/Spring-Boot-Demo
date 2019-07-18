@@ -1,5 +1,6 @@
 package demo.response;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * 
  * @author zhaomengwei 
  */
-@RestControllerAdvice
+@RestControllerAdvice(annotations = Controller.class)
 public class HandlerExceptionAdvice {
     
     @ExceptionHandler(value = GlobalException.class)

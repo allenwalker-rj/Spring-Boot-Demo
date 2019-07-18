@@ -7,6 +7,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.JsonViewResponseBodyAdvice;
 
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.JsonViewResponseBod
  * 
  * @author zhaomengwei 
  */
-@RestControllerAdvice
+@RestControllerAdvice(annotations = Controller.class)
 public class ResponseAdvice extends JsonViewResponseBodyAdvice {
 
     @Override

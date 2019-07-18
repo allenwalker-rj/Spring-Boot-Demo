@@ -1,6 +1,7 @@
 package demo.service.impl;
 
 import demo.dao.EmailDao;
+import demo.dao.UserEmailDao;
 import demo.entity.Email;
 import demo.entity.ServiceEmail;
 import demo.entity.UserEmail;
@@ -18,23 +19,23 @@ import java.util.List;
 public class EmailServiceImpl implements EmailService {
     
     @Resource
-    private EmailDao<ServiceEmail> serviceEmailDao;
+    private EmailDao serviceEmailDao;
 
     @Resource
-    private EmailDao<UserEmail> userEmailDao;
+    private UserEmailDao userEmailDao;
 
     @Override
     public void sendToUsers(Email email) {
         List<ServiceEmail> serviceEmails = serviceEmailDao.findAll();
         List<UserEmail> userEmails = userEmailDao.findAll();
-        ServiceEmail ServiceEmail = serviceEmails.get(0);
+        ServiceEmail serviceEmail = serviceEmails.get(0);
         
         if (email == null) {
             email = new Email("来自xx团队的祝福", "祝您工作生活愉快！");
         }
-        String[] sendEmails = userEmails.stream().toArray(String[]::new);
+        String[] sendEmails = userEmails.stream().map(x -> x.getEmail()).toArray(String[]::new);
         try {
-            EmailUtil.send(sendEmails, email, ServiceEmail);
+            EmailUtil.send(sendEmails, email, serviceEmail);
         } catch (MessagingException e) {
             LOGGER.error("邮件发送失败\n[{}]", e.getMessage());
         }
